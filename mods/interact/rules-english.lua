@@ -7,17 +7,20 @@ secondaryname = nil, --secondary name, usually the language name in english, or 
 
 rules = [[
 Rules:
-
-1. PVP is allowed. Don't Combat log!
-2. Don't be *overly* cruel, destructive, or inappropriate.
-3. Keep swearing to a minimum, and don't spam.
-4. No "Dating" or the like.
-5. Don't clear out entire forests without replanting.
-6. If you raid a kingdom while it's members are offline, you may not destroy or steal much.
-7. Please keep your builds medieval-ish times, and follow the laws of physics.
-8. Hacked clients or csms that give a pvp advantage are disallowed. (However, lagging through walls is allowed.)
-
-Remember: A some destruction during war is O.K. just "Don't be *overly* cruel"
+1.  No hacking. We define this as any modified client, and any CSMs that give you a PVP advantage. Punishable by a perm ban
+2.  No spawnkilling.  Dont lava peoples spawns, punishable by a temp ban.
+3.  No excessive griefing. punishable by repairing
+4.  No sexual content in roleplay or PMs. punishable by a temp/perm ban
+5.  No harrassing other players. punishable by a temp/perm bam
+6.  No racial slurs. punishable by a mute/temp ban/perm ban
+7.  No impersonation or logging into other peoples accounts. punishable by a temp/perm bam
+8.  No spamming, punishable by mute
+9.  Don't ask for items from staff. punishable by being shunned
+10. Don't give out coords in public chat. punishable by being shunned
+11. No skybases
+12. Tell an admin about any exploits before you use them, and dont use them
+13. Use a medieval style for buildings
+Flag rules: Don't have flags under -50, not on skybases, have 3 by 3 spaces
 ]],
 
 --The questions on the rules, if the quiz is used.
