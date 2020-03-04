@@ -64,23 +64,23 @@ function whinny:register_mob(name, def)
                 end,
 
                 set_velocity = function(self, v)
-                        local yaw = self.object:getyaw()
+                        local yaw = self.object:get_yaw()
                         if self.drawtype == "side" then
                                 yaw = yaw+(math.pi/2)
                         end
                         local x = math.sin(yaw) * -v
                         local z = math.cos(yaw) * v
-                        self.object:setvelocity({x=x, y=self.object:getvelocity().y, z=z})
+                        self.object:set_velocity({x=x, y=self.object:get_velocity().y, z=z})
                 end,
 
                 get_velocity = function(self)
-                        local v = self.object:getvelocity()
+                        local v = self.object:get_velocity()
                         return (v.x^2 + v.z^2)^(0.5)
                 end,
 
                 in_fov = function(self,pos)
                         -- checks if POS is in self's FOV
-                        local yaw = self.object:getyaw()
+                        local yaw = self.object:get_yaw()
                         if self.drawtype == "side" then
                                 yaw = yaw+(math.pi/2)
                         end
@@ -183,8 +183,8 @@ function whinny:register_mob(name, def)
                                 end
                         end
 
-                        if self.object:getvelocity().y > 0.1 then
-                                local yaw = self.object:getyaw()
+                        if self.object:get_velocity().y > 0.1 then
+                                local yaw = self.object:get_yaw()
                                 if self.drawtype == "side" then
                                         yaw = yaw+(math.pi/2)
                                 end
@@ -203,7 +203,7 @@ function whinny:register_mob(name, def)
                 end
             end
 
-                        if self.disable_fall_damage and self.object:getvelocity().y == 0 then
+                        if self.disable_fall_damage and self.object:get_velocity().y == 0 then
                                 if not self.old_y then
                                         self.old_y = self.object:getpos().y
                                 else
@@ -361,16 +361,16 @@ function whinny:register_mob(name, def)
                                                 if p.x > s.x then
                                                         yaw = yaw+math.pi
                                                 end
-                                                self.object:setyaw(yaw)
+                                                self.object:set_yaw(yaw)
                                                 if dist > 2 then
                                                         if not self.v_start then
                                                                 self.v_start = true
                                                                 self.set_velocity(self, self.walk_velocity)
                                                         else
-                                                                if self.jump and self.get_velocity(self) <= 1.5 and self.object:getvelocity().y == 0 then
-                                                                        local v = self.object:getvelocity()
+                                                                if self.jump and self.get_velocity(self) <= 1.5 and self.object:get_velocity().y == 0 then
+                                                                        local v = self.object:get_velocity()
                                                                         v.y = 6
-                                                                        self.object:setvelocity(v)
+                                                                        self.object:set_velocity(v)
                                                                 end
                                                                 self.set_velocity(self, self.walk_velocity)
                                                         end
@@ -412,9 +412,9 @@ function whinny:register_mob(name, def)
                                                         yaw = yaw+math.pi
                                                 end
                                         else
-                                                yaw = self.object:getyaw()+((math.random(0,360)-180)/180*math.pi)
+                                                yaw = self.object:get_yaw()+((math.random(0,360)-180)/180*math.pi)
                                         end
-                                        self.object:setyaw(yaw)
+                                        self.object:set_yaw(yaw)
                                 end
                                 self.set_velocity(self, 0)
                                 self.set_animation(self, "stand")
@@ -425,12 +425,12 @@ function whinny:register_mob(name, def)
                                 end
                         elseif self.state == "walk" then
                                 if math.random(1, 100) <= 30 then
-                                        self.object:setyaw(self.object:getyaw()+((math.random(0,360)-180)/180*math.pi))
+                                        self.object:set_yaw(self.object:get_yaw()+((math.random(0,360)-180)/180*math.pi))
                                 end
-                                if self.jump and self.get_velocity(self) <= 0.5 and self.object:getvelocity().y == 0 then
-                                        local v = self.object:getvelocity()
+                                if self.jump and self.get_velocity(self) <= 0.5 and self.object:get_velocity().y == 0 then
+                                        local v = self.object:get_velocity()
                                         v.y = 6
-                                        self.object:setvelocity(v)
+                                        self.object:set_velocity(v)
                                 end
                                 self:set_animation("walk")
                                 self.set_velocity(self, self.walk_velocity)
@@ -468,16 +468,16 @@ function whinny:register_mob(name, def)
                                 if p.x > s.x then
                                         yaw = yaw+math.pi
                                 end
-                                self.object:setyaw(yaw)
+                                self.object:set_yaw(yaw)
                                 if self.attack.dist > 2 then
                                         if not self.v_start then
                                                 self.v_start = true
                                                 self.set_velocity(self, self.run_velocity)
                                         else
-                                                if self.jump and self.get_velocity(self) <= 0.5 and self.object:getvelocity().y == 0 then
-                                                        local v = self.object:getvelocity()
+                                                if self.jump and self.get_velocity(self) <= 0.5 and self.object:get_velocity().y == 0 then
+                                                        local v = self.object:get_velocity()
                                                         v.y = 6
-                                                        self.object:setvelocity(v)
+                                                        self.object:set_velocity(v)
                                                 end
                                                 self.set_velocity(self, self.run_velocity)
                                         end
@@ -545,7 +545,7 @@ function whinny:register_mob(name, def)
                                 if p.x > s.x then
                                         yaw = yaw+math.pi
                                 end
-                                self.object:setyaw(yaw)
+                                self.object:set_yaw(yaw)
                                 self.set_velocity(self, 0)
 
                                 if self.timer > self.shoot_interval and math.random(1, 100) <= 60 then
@@ -566,7 +566,7 @@ function whinny:register_mob(name, def)
                                         vec.x = vec.x*v/amount
                                         vec.y = vec.y*v/amount
                                         vec.z = vec.z*v/amount
-                                        obj:setvelocity(vec)
+                                        obj:set_velocity(vec)
                                 end
                         end
                 end,
@@ -581,8 +581,8 @@ function whinny:register_mob(name, def)
                         self.object:set_armor_groups({fleshy=self.armor})
                         self.object:setacceleration({x=0, y=-10, z=0})
                         self.state = "stand"
-                        self.object:setvelocity({x=0, y=self.object:getvelocity().y, z=0})
-                        self.object:setyaw(math.random(1, 360)/180*math.pi)
+                        self.object:set_velocity({x=0, y=self.object:get_velocity().y, z=0})
+                        self.object:set_yaw(math.random(1, 360)/180*math.pi)
                         if self.type == "monster" and minetest.setting_getbool("only_peaceful_whinny") then
                                 self.object:remove()
                         end
