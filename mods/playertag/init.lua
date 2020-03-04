@@ -72,7 +72,7 @@ local function step()
 	for _, player in pairs(minetest.get_connected_players()) do
 		if player:get_player_name() == nill then
 			
-		else if nametags[player:get_player_name()]:get_luaentity() == nil then
+		elseif nametags[player:get_player_name()]:get_luaentity() == nil then
 			add_tag(player)
 			--minetest.chat_send_all("tag made for "..player:get_player_name())
 		else
