@@ -70,7 +70,7 @@ minetest.register_entity("playertag:tag", nametag)
 
 local function step()
 	for _, player in pairs(minetest.get_connected_players()) do
-		if player:get_player_name() == nill then
+		if player:get_player_name() == nil then
 			
 		elseif nametags[player:get_player_name()]:get_luaentity() == nil then
 			add_tag(player)
