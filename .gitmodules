@@ -1,3 +1,6 @@
 [submodule "mods/discordmt"]
 	path = mods/discordmt
 	url = https://github.com/archfan7411/discordmt/
+[submodule "mods/3d_armor"]
+	path = mods/3d_armor
+	url = https://github.com/stujones11/minetest-3d_armor
