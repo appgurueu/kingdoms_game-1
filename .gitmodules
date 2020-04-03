@@ -4,3 +4,6 @@
 [submodule "mods/3d_armor"]
 	path = mods/3d_armor
 	url = https://github.com/stujones11/minetest-3d_armor
+[submodule "mods/default"]
+	path = mods/default
+	url = https://github.com/minetest-game-mods/default
