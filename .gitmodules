@@ -10,3 +10,6 @@
 [submodule "mods/player_api"]
 	path = mods/player_api
 	url = https://github.com/minetest-game-mods/player_api
+[submodule "mods/minetest-3d_armor"]
+	path = mods/minetest-3d_armor
+	url = https://github.com/stujones11/minetest-3d_armor
